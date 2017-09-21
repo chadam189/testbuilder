@@ -54,10 +54,11 @@ var detectNetwork = function(cardNumber) {
   	return 'MasterCard';
   }  
 
-  //Test for Swift - this will come first before Visa, so they'll "win" in case of a conflict
+  //Test for Swift
+  //This section of code will execute before Visa, so Swift will "win" in case of a conflict
   if (cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19) {
     if (calcPrefix(4) === 4903 || calcPrefix(4) === 4905 || calcPrefix(4) === 4911 || calcPrefix(4) === 4936 || calcPrefix(6) === 564182 || calcPrefix(6) === 633110 || calcPrefix(4) === 6333 || calcPrefix(4) === 6759) {
-      return 'Swift';
+      return 'Switch';
     }
   } 
 
